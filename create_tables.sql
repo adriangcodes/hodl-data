@@ -1,4 +1,3 @@
-
 DROP TABLE IF EXISTS TransactionStatusChanges;
 DROP TABLE IF EXISTS Transactions;
 DROP TABLE IF EXISTS Wallets;
@@ -23,10 +22,24 @@ CREATE TABLE Wallets (
     user_id INT NOT NULL,
     crypto_id INT NOT NULL,
     balance DECIMAL(65, 8) DEFAULT 0.00000000,
-    last_updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(id),
     FOREIGN KEY (crypto_id) REFERENCES Cryptocurrencies(id)
 );
+
+-- Updates last_updated time in Wallets when a change is made:
+CREATE OR REPLACE FUNCTION update_last_updated_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.last_updated = CURRENT_TIMESTAMP;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trigger_update_wallets_last_updated
+BEFORE UPDATE ON Wallets
+FOR EACH ROW
+EXECUTE FUNCTION update_last_updated_column();
 
 CREATE TABLE Transactions (
     id SERIAL PRIMARY KEY,
@@ -34,9 +47,9 @@ CREATE TABLE Transactions (
     seller_id INT NOT NULL,
     crypto_id INT NOT NULL,
     amount DECIMAL(65, 8) NOT NULL,
-    date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    status ENUM('pending', 'completed', 'failed') DEFAULT 'pending',
-    transaction_fee DECIMAL(65, 8) DEFAULT 0.00000000,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(20) CHECK (status IN ('pending', 'completed', 'failed')) DEFAULT 'pending',
+    transaction_fee DECIMAL(10, 8) DEFAULT 0.00000000,
     FOREIGN KEY (buyer_id) REFERENCES Users(id),
     FOREIGN KEY (seller_id) REFERENCES Users(id),
     FOREIGN KEY (crypto_id) REFERENCES Cryptocurrencies(id)
@@ -45,8 +58,8 @@ CREATE TABLE Transactions (
 CREATE TABLE TransactionStatusChanges (
     id SERIAL PRIMARY KEY,
     transaction_id INT NOT NULL,
-    previous_status ENUM('pending', 'completed', 'failed') NOT NULL,
-    current_status ENUM('pending', 'completed', 'failed') NOT NULL,
-    changed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    previous_status VARCHAR(20) CHECK (previous_status IN ('pending', 'completed', 'failed')) NOT NULL,
+    current_status VARCHAR(20) CHECK (current_status IN ('pending', 'completed', 'failed')) NOT NULL,
+    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (transaction_id) REFERENCES Transactions(id)
 );
