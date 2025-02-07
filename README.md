@@ -4,7 +4,11 @@ This project is my response to Coder Academy DEV1002 Assignment 1 - Relational D
 
 I have envisaged this as a continuation of hodl-app, a Python-based CLI app submitted for my previous assessment.
 
-hodl-data is a PostgreSQL-based relational database designed to manage cryptocurrency transactions, user wallets, and portfolio holdings with accuracy and efficiency. It ensures data integrity through normalized tables, tracks trade activity with detailed transaction records, and provides analytical insights via structured queries. The schema supports essential financial operations, including balance calculations, transaction history tracking, and automated status updates, making it a reliable foundation for cryptocurrency exchange management.
+hodl-data is a PostgreSQL-based relational database designed to manage cryptocurrency transactions and user wallets with accuracy and efficiency. It ensures data integrity through normalised tables, tracks trade activity with immutable transaction records, and provides analytical insights via structured queries.
+
+It supports essential financial operations, including balance calculations, transaction history tracking, and automated status updates, making it a reliable foundation for a cryptocurrency exchange app.
+
+Future work would look to combine and refine hodl-app and hodl-data with front-end design, to create a Bitcoin wallet/exchange MVP.
 
 # GitHub
 
