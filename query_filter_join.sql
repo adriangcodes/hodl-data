@@ -10,6 +10,7 @@ JOIN Users u ON w.user_id = u.id
 JOIN Cryptocurrencies c ON w.crypto_id = c.id
 WHERE u.name = 'Anthony Easy' AND c.symbol = 'BTC';
 
+
 -- Filter the Users Wallets join table for all BTC wallets
 
 SELECT 
@@ -20,4 +21,5 @@ SELECT
 FROM Wallets w
 JOIN Users u ON w.user_id = u.id
 JOIN Cryptocurrencies c ON w.crypto_id = c.id
-WHERE c.symbol = 'BTC';
+WHERE c.symbol = 'BTC'
+ORDER BY balance DESC;
