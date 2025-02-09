@@ -74,10 +74,20 @@ PostgreSQL, 2024. CREATE FUNCTION. Available at: https://www.postgresql.org/docs
 
 PostgreSQL Documentation, 2024. PL/pgSQL Trigger Functions. Available at: https://www.postgresql.org/docs/current/plpgsql-trigger.html [Accessed 7 Feb. 2025].
 
+Radney, D. (2023) Learn SQL: User-defined functions. SQL Shack. Available at: https://www.sqlshack.com/learn-sql-user-defined-functions/ (Accessed: 7 February 2025).
+
 Reddit, 2023. How to update a timestamp automatically? Available at: https://www.reddit.com/r/PostgreSQL/comments/10shxej/how_to_update_a_timestamp_automatically/ [Accessed 7 Feb. 2025].
 
 Scaler, 2023. Timestamp in SQL. Available at: https://www.scaler.com/topics/timestamp-in-sql/ [Accessed 7 Feb. 2025].
 
 Splunk, 2024. Data Normalization. Available at: https://www.splunk.com/en_us/blog/learn/data-normalization.html#:~:text=In%20simple%20terms%2C%20data%20normalization,data%20normalization%20techniques%20and%20rules. [Accessed 7 Feb. 2025].
+
+SQL Server 101 (2021) SQL User Defined Functions [YouTube video]. Available at: https://www.youtube.com/watch?v=MlaAX59l2b4 (Accessed: 7 February 2025).
+
+Stack Overflow (2013) How to create a function in SQL Server. Available at: https://stackoverflow.com/questions/14550486/how-to-create-a-function-in-sql-server (Accessed: 7 February 2025).
+
+Stack Overflow (2017) Define a function and use it in a SQL query. Available at: https://stackoverflow.com/questions/46071083/define-a-function-and-use-it-in-a-sql-query (Accessed: 7 February 2025).
+
+TechTFQ (2022) SQL Server Functions [YouTube video]. Available at: https://www.youtube.com/watch?v=m7qxl-XTo9M (Accessed: 7 February 2025).
 
 W3Schools, 2023. SQL Tutorial. Available at: https://www.w3schools.com/sql/default.asp [Accessed 7 Feb. 2025].
